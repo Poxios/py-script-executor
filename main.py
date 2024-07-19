@@ -15,9 +15,9 @@ def make_pull():
     if data and 'password' in data and data['password'] == env_password:
         try:
             result = subprocess.run(['./script.sh'], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            return jsonify({'status': 'success', 'output': result.stdout.decode('utf-8')})
+            return jsonify({'status': 'success'})
         except subprocess.CalledProcessError as e:
-            return jsonify({'status': 'error', 'output': e.stderr.decode('utf-8')}), 500
+            return jsonify({'status': 'error'}), 500
     else:
         return jsonify({'status': 'error', 'message': 'Invalid password'}), 403
 
