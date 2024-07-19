@@ -8,7 +8,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-@app.route('/make-pull', methods=['POST'])
+@app.route('/code-push', methods=['POST'])
 def make_pull():
     data = request.get_json()
     env_password = os.getenv('PASSWORD')
